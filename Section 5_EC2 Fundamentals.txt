@@ -17,3 +17,13 @@ EC2 = Elastic Compute Cloud
 * Storage Optimized
 https://instances.vantage.sh/ -> This site offers an extensive comparison of different EC2 instance types, including specifications, pricing, and performance metrics.
                                  It's useful for understanding the differences between instance types and selecting the right one for your needs​ 
+
+-Security Groups:
+Is a set of rules for allowed inbound/outbound traffic to the EC2 instance. 
+AWS security groups are stateful: This means that if you allow an incoming connection (inbound rule), the response traffic is automatically allowed (outbound rule) without needing to explicitly define an outbound rule for it, and vice versa.
+common ports:
+80 - http
+443 - https
+22 - ssh / sftp
+21 - ftp
+3389 - RDP (Remote Desktop Protocol)
