@@ -50,6 +50,24 @@ Instead, give IAM roles to your instance.
 (there are more but these are the main ones)
 
 
+-Elastic IP: If you need to have a fixed public IP for your instance, you need to use Elastic IP which is a public IPv4 IP you own as long as you dont delete it.
+Overall, try to avoid using Elastic IP:
+*They ofter reflect poor architecture decisions
+*Instead, use a random public IP and register a DNS name to it
+*Or, use a Load Balancer and don't use a public IP
+
+
+-EC2 Placement Groups:
+*Cluster
+*Spread
+*Partition
+
+-ENI (Elastic Netwrok Interface):
+This is a logical component in a VPC that represents a virtual network card.
+Read more about ENI in this article - https://aws.amazon.com/blogs/aws/new-elastic-network-interfaces-in-the-virtual-private-cloud/
+
+-"EC2 Hibernate" Concept
+
 
 
 
