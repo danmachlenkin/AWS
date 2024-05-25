@@ -27,3 +27,29 @@ common ports:
 22 - ssh / sftp
 21 - ftp
 3389 - RDP (Remote Desktop Protocol)
+
+*Every time you are getting timeout when trying to access your EC2 instance (using SSH or the browser (http/s)) it is most likely related to security group rules. so check out those.
+
+-Connecting to EC2 Instances:
+
+OS	       SSH	Putty	  EC2 Instance Connect
+Linux	        V		        V
+Mac	        V		        V
+Windows <10		  V	        V
+Windows >10	V	  V	        V
+
+-How to SSH to the EC2 instance through Mac/Linux/Windwos. 
+
+-When connecting to an EC2 instance through "instance connent" never ever submit your Access keys (security risk + bad practice).
+Instead, give IAM roles to your instance. 
+
+-EC2 Instance Purchse Options:
+*On-Demand
+*Sport Instance
+*Reserved Instance
+(there are more but these are the main ones)
+
+
+
+
+
