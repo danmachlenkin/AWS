@@ -1,0 +1,15 @@
+-EBS Volume:
+*EBS (Elastic Block Store) volume is a network drive you can attach to your instances while they run
+*It allows your instances to persist data, even after their termination
+*They can only be mounted to one instance at a time
+*They are bound to a specific availability zone
+
+Analogy: Think of them as a "network USB stick"
+
+*You can choose to set the root EBS "Delete on Termination" setting to be Yes/No.
+Same goes for any new EBS you create. 
+
+-EBS Snapshots:
+*Make a backup(snapshot) of your EBS volume at a point in time
+*Not necessary to detach volume to do snapshot, but recommended
+*Can copy snapshots acress AZ or Region
