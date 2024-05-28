@@ -12,4 +12,49 @@ Same goes for any new EBS you create.
 -EBS Snapshots:
 *Make a backup(snapshot) of your EBS volume at a point in time
 *Not necessary to detach volume to do snapshot, but recommended
-*Can copy snapshots acress AZ or Region
+*Can copy snapshots across AZ or Region
+*You can create a new volume from a snapshot
+
+-AMI Overview:
+*AMI = Amazon Machine Image
+*AMI are a customization of an EC2 instance - you add your own software, configuration, OS, monitoring..
+*You can launch EC2 instances from: 
+   1.A Public AMI: AWS provided
+   2.Your own AMI: you make and maintain them yourself
+   3.An AWS Marketplace AMI: an AMI someone else made
+
+-EC2 Instance Store:
+*EBS volumes are network drives with good but "limited" performance
+*If you need a high performance hardware disk, use EC2 Instance Store:
+   1.Better I/) performance
+   2.EC2 Instance Store lose their storage if they're stopped
+   3.Good for buffer / cache/scratch data/temporary content
+
+-EBS Volumes Types:
+*General Purpose SSD volumes ("gp2"/"gp3")
+*Provisioned IOPS SSD volumes (io2 block express 3 / io1)
+*Throughput Optimized HDD volumes (st1)
+*Cold HDD volumes (sc1)
+
+-EBS Multi-Attach for the io1/io2 family
+*Lets you attach the same EBS volume to multiple EC2 instances in the same AZ
+
+-EBS Encryption
+*When you create an encrypted EBS volume, you get the following:
+1.Data is encrypted inside the volume
+2.All the data in flight moving between the instance and the volume is encrypted
+3.All snapshots are encrypted
+
+*Encryption and decryption are handled transparently (you have nothing to do)
+
+*Encryption has a minimal impact on latency
+
+*EBS Encryption leverages keys from KMS
+
+*Snapshots of encrypted volumes are encrypted
+
+
+-Amazon EFS - Elastic File System:
+
+
+
