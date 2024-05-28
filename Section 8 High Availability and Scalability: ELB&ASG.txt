@@ -1,0 +1,77 @@
+-Vertical Scalability: Vertically scalability means increasing the size off the instance (Scale up/down)
+-Horizontal Scalability: Horizontal scalability means increasing the number of instances/systems for your application. (Scale out/in)
+
+
+-Why use a load balancer? :
+1. Spread load across multiple downstream instances
+2.Expose a single point of access (DNS) to your application
+3.Seamlessly handle failures of downstream instances
+4. Do regular health checks to your instances
+5.Provide SSL termination (HTTPS) for your websites
+6.Enforce stickiness with cookies
+7.High availability across zones
+8.Separate public traffic from private traffic
+
+-Elastic load balancer is a managed load balancer by AWS. 
+AWS guarantees that it will be working, takes care of upgrades and maintenance, it is also integrated with many other AWS services such as EC2,Ec2 auto scaling groups,ECS,CloudWatch,Route53,WAF etc....
+	
+-Health Checks : 
+ELB are able to make health checks for the EC2 instances, they enable the load balancer to know if instances it forwards traffic to are available to reply to requests..
+
+Types of load balancer on AWS:
+-AWS has 4 kings of managed LB:
+1. Classic Load Balancer - (v1 old generation) - is not recommended to be used anymore by AWS. 
+2. Application Load Balancer - (v2 new generation) - HTTP,HTTPS,WebSocket
+3. Network Load Balancer - (v2 new generation) - TCP,TLS (secure TCP), UDP
+4. Gateway Load Balancer - operates at layer 3 (Network layer) - IP Protocol
+
+Some load balancers can be setup as internal (private) or external (public) ELBs.
+
+-Load Balancer Security Groups:
+Load balancers are being accessible for end users so usually their SG will include (HTTP/HTTPS TCP) for everyone (0.0.0.0/0), but, the EC2 instance will only allow traffic coming from the load balancer itself. (The source of its SG will be the SG of the load balancer)
+
+-ALB:
+ALB are a great for for micro services & container based application (example: Docker & Amazon ECS)
+
+-ALB Target Groups:
+*EC2 instances (can be managed by an Auto Scaling Group) -HTTP
+*ECS tasks (managed by ECS itself)- HTTP
+*Lambda function - HTTP request is translated into a JSON event
+*IP Address - must be private IPs
+*ALB can route to multiple target groups
+*Health checks are at the target group level
+
+-NLB (Netwrok Load Balancer):
+*Forward TCP & UDP traffic to your instances
+*Handle millions of request per seconds
+*Less latency
+*NLB has one static IP per AZ
+*NLB are used for extreme performance
+*You can have NLB infant of ALB if you need so
+
+-There Is an option to use "Stickiness" (Sticky Sessions) by enabling cookies (Application based cookies / duration based cookies) for the LB.
+
+-For ALB, Cross-Zone load balancing is enabled by default (can be disabled at the Target Group level)
+-For NLB & Gateway LB , Cross-Zone load balancing is disabled. 
+
+-SSL/TLS:
+* An SSL certificate allows traffic between your clients and your load balancer to be encrypted in transit (in-flight encryption)
+*SSL - Secure Sockets Layer, used to encrypt connections
+*TLS refers to Transport Layer Security, which is a newer version
+*You can manage certificates using ACM (AWS Certificate Manager)
+
+-SNI - Server Name Indication:
+SNI solves the problem of loading multiple SSL certificates onto one web server (to serve multiple websites)
+
+-Connection Draining - allows for active request to complete even if the EC2 instance has stopped/terminated/unhealthy (between 1-3600 seconds)
+
+
+-ASG - Auto Scaling Groups:
+*Allows you to scale out / in your EC2 instances.
+-It is possible to scale and ASG based on CloudWatch alarms.
+
+
+
+
+
+
