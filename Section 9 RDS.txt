@@ -1,0 +1,60 @@
+Amazon RDS
+----------
+
+
+RDS - Relation Database Service
+
+Advantage over using RDS versus deploying DB on EC2:
+*RDS is a managed service:
+-Automated provisioning, OS patching
+-Continuous backups and restore to specific timestamp
+-Monitoring dashboards
+-Read replicas for improved read performance
+-Multi AZ setup for DR(Disaster Recovery)
+-Maintenance windows for upgrades
+-Scaling capability (vertical and horizontal)
+-Storage back by EBS
+
+*But - there is not was to SSH into RDS 
+
+-RDS has storage auto scaling
+
+-RDS read replicas for read scalability:
+*up to 15 read replicas
+*Within AZ / Cross AZ / or Cross Region
+*Replication is ASYNC so read are eventually consistent
+*Replicas can be promoted to their own DB
+
+-RDS Multi AZ(Disaster Recovery)
+*Creating an "stand by" db in a different AZ within the same Region.
+*Automatic failover
+
+-RDS vs RDS Custom:
+RDS: entire database and the OS is managed by AWS
+RDS Custom: full admin access to the underlying OS and the database (only for Oracle & Microsoft SQL Server Database) via SSH.
+
+
+RDS & Aurora Restore options:
+-Restoring a RDS / Aurora backup or a snapshot - create a new database
+-Restoring MySQL RDS database from S3 - create a backup and store it on S3
+
+RDS & AUrora Security:
+*At rest encryption:
+-DB master & replicas encryption using AWS KMS - must be defined at launch time
+-If the master is not encrypted, the read replicas cannot be encrypted
+-To encrypt an un-encrypted database, go through a DB snapshot & restore as encrypted
+
+*In-flight encryption: TLS- ready by default, use the AWS TLS root certificates client-side 
+*IAM AuthenticationL IAM roles to connect to your database (instead of username/pw)
+*Security Groups: Control network access to your RDS
+*No SSH Available except on "RDS Custom"
+*Audit logs can be enabled and sent to CloudWatch
+
+-RDS Proxy:
+*Fully managed DB Proxy for RDS
+*Allows apps to pool and share DB connections established with the database
+*Improving DB efficiency by reducing the stress on DB resources and minimize open connections (and timeouts)
+*Severless,autoscaling,highly available(multi-AZ)
+*Reduced RDS & Aurora failover time by up 66%
+*Enforce IAM authentication for DB and securely store credentials in AWS secrets manager
+*RDS Proxy is never publicly accessible (must be accessed from VPC)
