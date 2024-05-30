@@ -1,0 +1,13 @@
+Instantiating Applications Quickly:
+*EC2 Instances: 
+1. Use a Golden AMI: Install you applications, OS dependencies etc.. beforehand and launch your EC2 instance from the Golden AMI.
+
+2. Bootstrap using User Data
+
+3.Hybrid: Mix golden AMI and user data
+
+*RDS DB:
+1. Restore from a snapshot: the database will have schemas and data ready
+
+*EBS Volumes:
+1. Restore from a snapshot: the disk will already be formatted and have data
