@@ -1,0 +1,18 @@
+Route53 - Record Types:
+*A - maps a hostname to IPv4
+*AAAA - maps a hostname to IPv6
+*CNAME - maps a hostname to another hostname
+*NS - Name Servers for the Hosted Zone
+
+*Public Hosted Zones - contains records that specify how to route traffic on the internet (public domain names) 
+
+*Private Hosted Zones - contain records that specify how you route traffic within one or more VPCs (private domain names)
+
+*TTL - Time To Live
+You can set the time that the client will save the DNS record in his local cache 
+
+- Alias helps us redirect a record to a load balancer
+
+- Route 53 Health Checks 
+
+-Route 53 Routing Policies
