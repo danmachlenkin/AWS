@@ -1,0 +1,36 @@
+SQS: queue model
+SNS: pub/sub model
+Kinesis: real-time streaming model
+
+
+SQS Queue:
+"Producer" ---> Send Messages ----> SQS Queue ----->Poll Messages -----> "Consumer"
+"Visibility Window"
+
+FIFO Queue - first in first out
+SQS + Autoscaling
+
+SQS Queue (Infinitely Scalable)
+
+
+*SNS - Simple Notification Service
+If you want to send one message to many receivers
+Pub/sub = publish / subscribers 
+Message Filtering...
+
+
+Amazon Kinesis Overview:
+- Makes it easy to collect, process, and analyze streaming data in real-time
+-Ingest real-time data such as: Application logs, Metrics,Website clickstreams, etc..
+
+1. Kinesis Data Streams
+2. Kinesis Data Firehose
+3. Kinesis Data Analytics
+4. Kinesis Video Streams
+
+
+Amazon MQ:
+Is a managed message broker service for: RabbitMQ / ActiveMQ
+-AmazonMQ does not "scale" as much as SQS/SNS
+
+
